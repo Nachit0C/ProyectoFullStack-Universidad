@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "1207e02a-30ba-4c98-967b-d1ac749b98de",
+		"name": "AlwaysData Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36582890"
+	},
+	"item": [
+		{
+			"name": "CreatePersona",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":  \"cosmo\",\r\n    \"apellido\": \"kramer\",\r\n    \"dni\": \"222666444\",\r\n    \"fecha_nacimiento\": \"1964-05-19\",\r\n    \"email\": \"kramercosmo@asdasd.com\",\r\n    \"telefono\":\"5565-222-654\",\r\n    \"direccion\":\"15 7avenue\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://nachociccone.alwaysdata.net/persona/create",
+					"protocol": "http",
+					"host": [
+						"nachociccone",
+						"alwaysdata",
+						"net"
+					],
+					"path": [
+						"persona",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdatePersona",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":  \"cosmo\",\r\n    \"apellido\": \"kramer\",\r\n    \"dni\": \"222666444\",\r\n    \"fecha_nacimiento\": \"1964-05-19\",\r\n    \"email\": \"kramercosmo@asdasd.com\",\r\n    \"telefono\":\"5565-222-654\",\r\n    \"direccion\":\"20 7avenue\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://nachociccone.alwaysdata.net/persona/update/10",
+					"protocol": "https",
+					"host": [
+						"nachociccone",
+						"alwaysdata",
+						"net"
+					],
+					"path": [
+						"persona",
+						"update",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletePersona",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://nachociccone.alwaysdata.net/persona/delete/3",
+					"protocol": "https",
+					"host": [
+						"nachociccone",
+						"alwaysdata",
+						"net"
+					],
+					"path": [
+						"persona",
+						"delete",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateAlumno",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"becado\": \"0\",\r\n    \"fecha_ingreso\": \"1993-05-19\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://nachociccone.alwaysdata.net/alumno/create/10",
+					"protocol": "http",
+					"host": [
+						"nachociccone",
+						"alwaysdata",
+						"net"
+					],
+					"path": [
+						"alumno",
+						"create",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateAlumno",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"becado\": \"1\",\r\n    \"fecha_ingreso\": \"1993-05-02\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://nachociccone.alwaysdata.net/alumno/update/10",
+					"protocol": "https",
+					"host": [
+						"nachociccone",
+						"alwaysdata",
+						"net"
+					],
+					"path": [
+						"alumno",
+						"update",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAlumno",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://nachociccone.alwaysdata.net/alumno/delete/10",
+					"protocol": "https",
+					"host": [
+						"nachociccone",
+						"alwaysdata",
+						"net"
+					],
+					"path": [
+						"alumno",
+						"delete",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateInscipcion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"carrera_id\": \"1\",\r\n    \"fecha_inscripcion\": \"2023-03-14\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://nachociccone.alwaysdata.net/inscripciones/create/10",
+					"protocol": "https",
+					"host": [
+						"nachociccone",
+						"alwaysdata",
+						"net"
+					],
+					"path": [
+						"inscripciones",
+						"create",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateInscripcion",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"old_carrera_id\": \"2\",\r\n    \"new_carrera_id\": \"8\",\r\n    \"fecha_inscripcion\": \"2023-03-14\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://nachociccone.alwaysdata.net/inscripciones/update/10",
+					"protocol": "https",
+					"host": [
+						"nachociccone",
+						"alwaysdata",
+						"net"
+					],
+					"path": [
+						"inscripciones",
+						"update",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteInscripcion",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"carrera_id\": \"8\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://nachociccone.alwaysdata.net/inscripciones/delete/10",
+					"protocol": "https",
+					"host": [
+						"nachociccone",
+						"alwaysdata",
+						"net"
+					],
+					"path": [
+						"inscripciones",
+						"delete",
+						"10"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

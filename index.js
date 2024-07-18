@@ -1,15 +1,19 @@
 const myExpress = require('express');
-const blankRoute = require('./Routes/blankRoute');
-const carreras = require('./Routes/carreras');
-const sedes = require('./Routes/sedes');
-const persona = require('./Routes/persona');
-const alumno = require('./Routes/alumno');
-const inscripciones = require('./Routes/inscripciones');
+const cors = require('cors');
+const blankRoute = require('./Backend/Routes/blankRoute');
+const carreras = require('./Backend/Routes/carreras');
+const sedes = require('./Backend/Routes/sedes');
+const persona = require('./Backend/Routes/persona');
+const alumno = require('./Backend/Routes/alumno');
+const inscripciones = require('./Backend/Routes/inscripciones');
 
 const PORT = process.env.PORT || 3000;
 
 const myApp = myExpress();
 
+myApp.use(cors({
+    origin: 'http://127.0.0.1:5500'
+}));
 myApp.use(myExpress.json());
 
 myApp.use("/", blankRoute);

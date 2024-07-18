@@ -34,16 +34,20 @@ const createPersona = (req, res) => {
         //Verifico si ya existe una persona con el mismo dni o email
         const sql1 = `SELECT * FROM personas WHERE (dni = ?) OR (email = ?);`;
         db.query(sql1,[dni,email], (err,result) => {
-            if (err) throw err;
+            if (err) {
+                return res.status(500).json({ error: 'Error en el servidor' });
+            };
 
             if (result.length > 0) {
-                return res.send('Ya existe una persona con ese dni o email.');
+                return res.status(400).json({ error: 'Ya existe una persona con ese dni o email.' });
             } else {
                 const sql = `INSERT INTO personas (nombre, apellido, dni, fecha_nacimiento, email, telefono, direccion) 
                     VALUES (?, ?, ?, ?, ?, ?, ?);`;
                 db.query(sql,[nombre, apellido, dni, fecha_nacimiento, email, telefono, direccion] ,(err, result) => {
-                    if (err) throw err;
-                    res.send(result);        
+                    if (err) {
+                        return res.status(500).json({ error: 'Error en el servidor' });
+                    };
+                    res.status(201).json({ message: 'Persona creada con éxito', result });
                 });
             }
         });

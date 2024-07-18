@@ -3,30 +3,21 @@ require('dotenv').config();
 // Configurar con los datos de la base de datos
 const coneccion = mysql.createConnection({
     //host local:
-    //host: '127.0.0.1',
+    host: process.env.HOST,
     //host para alwaysdata.
-    host: 'mysql-nachociccone.alwaysdata.net',
+    //host: 'mysql-nachociccone.alwaysdata.net',
     //user local:
-    //user: 'root',
+    user: process.env.USER,
     //user para alwaysdata:
-    user: '367447_nachocicc',
+    //user: '367447_nachocicc',
     //password para alwaysdata.
-    //host: '127.0.0.1',
-    //host para alwaysdata.
-    host: 'mysql-nachociccone.alwaysdata.net',
-    //user: 'root',
-    //user para alwaysdata:
-    user: '367447_nachocicc',
     //password es la misma.
-    password: 'nacho123',
+    password: process.env.PASSWORD,
     //port: 3306,
     //database local:
-    //database: 'urioplata',
+    database: process.env.DATABASE,
     //database para alwaysdata:
-    database: 'nachociccone_urioplata',
-    //database: 'urioplata',
-    //database para alwaysdata:
-    database: 'nachociccone_urioplata',
+    //database: 'nachociccone_urioplata',
     multipleStatements: true
 });
 

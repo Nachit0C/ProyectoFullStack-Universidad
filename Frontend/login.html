@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" href="./Imagenes/hat-icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./CSS/header.css" type="text/css" />
+    <link rel="stylesheet" href="./CSS/login.css" type="text/css" />
+</head>
+<body>
+    <div id="cabecera">
+        <!-- Barra de navegación -->
+        <div>
+            <a href="./index.html"> Home </a>
+            <a href="./sedes.html"> Sedes </a>
+            <a href="./index.html#seccioncarreras"> Carreras </a>
+            <a href="./contacto.html"> Contacto </a>
+        </div>
+        <!-- Nombre de institución -->
+        <div>
+            <h1>Universidad del Río de la Plata</h1>
+        </div>
+    </div>
+
+    <section class="seccion">
+        <form class="formulario" id="formularioLogin">
+            <fieldset class="campos">
+                <legend>Registrate</legend>
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username">
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="text" id="password" name="password">
+                </div>
+                <div>
+                    <input class="boton" type="submit" value="Ingresar" id="botonEnviar">
+                </div>
+                <div id="mensajeRespuesta"></div>
+            </fieldset>
+        </form>
+    </section>   
+
+    <footer>
+        <i class="fa fa-envelope"></i>
+        <i class="fa fa-github"></i>
+        <i class="fa fa-twitter"></i>
+        <i class="fa fa-linkedin-square"></i>
+        <i class="fa fa-facebook-square"></i>
+        <i class="fa fa-youtube-play"></i>
+        <i class="fa fa-whatsapp"></i>
+        <p>Universidad del Río de la Plata © 2024</p>
+        <a href="./index.html"> Home </a>
+    </footer>
+
+    <script src="./Js/login.js"></script>
+</body>
+</html>

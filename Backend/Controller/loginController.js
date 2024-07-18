@@ -9,9 +9,9 @@ const login = (req, res) => {
     };
 
     if (username === userAdmin.username && password === userAdmin.password) {
-        res.json({true});
+        res.json({message:'true'});
     } else {
-        res.status(401).json({ error: 'Credenciales incorrectas' });
+        res.status(401).json({error:'Credenciales incorrectas'});
     }
 }
 

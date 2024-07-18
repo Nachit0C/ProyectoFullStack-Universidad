@@ -1,8 +1,8 @@
 const apiUrl = 'http://localhost:3000';
 
 const formularioHTML = document.getElementById("formularioLogin");
-const usernameHTML = document.querySelector("[name=nombre]");
-const passwordHTML = document.querySelector("[name=apellido]");
+const usernameHTML = document.querySelector("[name=username]");
+const passwordHTML = document.querySelector("[name=password]");
 const mensajeRespuestaHTML = document.getElementById("mensajeRespuesta");
 
 formularioHTML.addEventListener('submit', (event)=>{
@@ -18,16 +18,16 @@ formularioHTML.addEventListener('submit', (event)=>{
       })
       .then(response => response.json())
       .then(data => {
-        if (data.token) {
-          localStorage.setItem('token', data.token);
-          window.location.href = 'admin.html';
+        if (data.message === 'true') {
+          localStorage.setItem('admin', 'true');
+          window.location.href = 'tablaPersonas.html';
         } else {
-          loginError.textContent = data.error;
+            mensajeRespuestaHTML.textContent = data.error;
         }
       })
       .catch(error => {
         console.error('Error:', error);
-        loginError.textContent = 'Error al iniciar sesión';
+        mensajeRespuestaHTML.textContent = 'Error al iniciar sesión';
       });
 
 });

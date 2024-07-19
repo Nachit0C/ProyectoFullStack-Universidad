@@ -11,18 +11,18 @@ formularioHTML.addEventListener('submit', (event)=>{
     const username = usernameHTML.value;
     const password = passwordHTML.value;
 
-    fetch(`${apiUrl}/login`, {
+    fetch(`${apiUrl}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
       })
       .then(response => response.json())
       .then(data => {
-        if (data.message === 'true') {
-          localStorage.setItem('admin', 'true');
+        if (data.auth) {
+          localStorage.setItem('token', data.token);
           window.location.href = 'tablaPersonas.html';
         } else {
-            mensajeRespuestaHTML.textContent = data.error;
+            mensajeRespuestaHTML.textContent = data.message || 'Credenciales incorrectas.';
         }
       })
       .catch(error => {

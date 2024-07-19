@@ -7,6 +7,7 @@ const persona = require('./Backend/Routes/persona');
 const alumno = require('./Backend/Routes/alumno');
 const inscripciones = require('./Backend/Routes/inscripciones');
 const login = require('./Backend/Routes/login');
+const authRoute = require("./Backend/Routes/authRoute");
 
 const PORT = process.env.PORT || 3000;
 
@@ -31,6 +32,8 @@ myApp.use("/alumno", alumno);
 myApp.use('/inscripciones', inscripciones);
 
 myApp.use('/login', login);
+
+myApp.use("/auth", authRoute);
 
 myApp.listen( PORT, () =>{
     console.log(`Server running at port: http://localhost:${PORT} .`);

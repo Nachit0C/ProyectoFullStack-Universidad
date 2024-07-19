@@ -5,14 +5,19 @@ const dataDiv = document.getElementById('data');
 const fetchError = document.getElementById('fetchError');
 
 fetchDataButton.addEventListener('click', () => {
+    const token = localStorage.getItem('token');
     
-    if(localStorage.getItem('admin') === 'true'){
-        fetch(`${apiUrl}/persona/all`, {method: 'GET'})
+    if(token){
+        fetch(`${apiUrl}/persona/all`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
         .then(response => response.json())
         .then(data => {
-            dataDiv.innerHTML = ''; // Clear previous data
-            /*dataDiv.textContent = JSON.stringify(data);
-            fetchError.textContent = '';*/
+            dataDiv.innerHTML = ''; // Limpio data vieja
             if (Array.isArray(data)) {
                 data.forEach(person => {
                     const personDiv = document.createElement('div');

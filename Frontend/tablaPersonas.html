@@ -6,7 +6,7 @@
     <title>Admin</title>
     <link rel="icon" href="./Imagenes/hat-icon.png" type="image/x-icon" />
     <link rel="stylesheet" href="./CSS/header.css" type="text/css" />
-    <link rel="stylesheet" href="./CSS/login.css" type="text/css" />
+    <link rel="stylesheet" href="./CSS/admin.css" type="text/css" />
 </head>
 <body>
     <div id="cabecera">
@@ -24,8 +24,27 @@
     </div>
 
     <h1>Admin Page</h1>
-    <button id="fetchData">Fetch Data</button>
-    <div id="data"></div>
+    
+    <div id="divTabla">
+        <button id="fetchData">Traer Tabla</button>
+        <br>
+        <table id="data">
+            <caption class="titulos"><b>Personas</b></caption>
+            <thead>
+                <tr id="titulosTabla">
+                    <th>Apellido</th>
+                    <th>Nombre</th>
+                    <th>DNI</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <button id="createPersona" style="display: none;">Nueva Persona</button>
+    </div>
+
     <div id="fetchError" style="color: red;"></div>
 
     <footer>

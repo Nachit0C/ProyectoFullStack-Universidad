@@ -13,6 +13,7 @@ const mensajeRespuestaHTML = document.getElementById("mensajeRespuesta");
 formularioHTML.addEventListener('submit', (event)=>{
     event.preventDefault();
 
+    const token = localStorage.getItem('token');
     const nombre = nombreHTML.value;
     const apellido = apellidoHTML.value;
     const dni = dniHTML.value;
@@ -24,7 +25,8 @@ formularioHTML.addEventListener('submit', (event)=>{
     fetch(`${apiUrl}/persona/create`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({ nombre, apellido, dni, fecha_nacimiento, email, telefono, direccion})
     })

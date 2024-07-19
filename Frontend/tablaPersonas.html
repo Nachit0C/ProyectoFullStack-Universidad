@@ -45,6 +45,48 @@
         <button id="createPersona" style="display: none;">Nueva Persona</button>
     </div>
 
+    <section class="seccion" id="sectionID">
+        <form class="formulario" id="createPersonaForm">
+            <fieldset class="campos">
+                <legend>Agregar Persona</legend>
+                <div>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre">
+                </div>
+                <div>
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido">
+                </div>
+                <div>
+                    <label for="dni">DNI:</label>
+                    <input type="text" id="dni" name="dni">                    
+                </div>
+                <div>
+                    <label for="fechaNacimiento">Fecha de nacimiento:</label>
+                    <input type="date" id="fechaNacimiento" name="fechaNacimiento">       
+                </div>
+                <br>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div>
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono">
+                </div>
+                <div>
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion" name="direccion">
+                </div>
+                <div>
+                    <input class="boton" type="submit" value="Agregar Persona" id="botonAgregarPersona">
+                    <button class="botonCancelar" type="button" id="cancelButton">Cancelar</button>
+                </div>
+                <div id="mensajeRespuesta"></div>
+            </fieldset>
+        </form>
+    </section>   
+
     <div id="fetchError" style="color: red;"></div>
 
     <footer>

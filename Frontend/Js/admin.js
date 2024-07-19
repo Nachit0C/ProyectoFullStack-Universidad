@@ -5,6 +5,10 @@ const dataTable = document.getElementById('data');
 const tbody = dataTable.querySelector('tbody');
 const fetchError = document.getElementById('fetchError');
 const createPersonaButton = document.getElementById('createPersona');
+const createPersonaForm = document.getElementById('createPersonaForm');
+const agregarPersonaButton = document.getElementById('botonAgregarPersona');
+const cancelButton = document.getElementById('cancelButton');
+const sectionIDHTML = document.getElementById('sectionID');
 
 fetchDataButton.addEventListener('click', () => {
     const token = localStorage.getItem('token');
@@ -59,7 +63,12 @@ fetchDataButton.addEventListener('click', () => {
                     tbody.appendChild(newRow);
                 });
             } else {
-                dataTable.createElement('h1').textContent = 'No se encontraron personas';
+                const newRow = document.createElement('tr');
+                const noDataCell = document.createElement('td');
+                noDataCell.colSpan = 5;
+                noDataCell.textContent = 'No se encontraron personas';
+                newRow.appendChild(noDataCell);
+                tbody.appendChild(newRow);
             }
             fetchDataButton.style.display = 'none';
             createPersonaButton.style.display = 'block';
@@ -74,6 +83,54 @@ fetchDataButton.addEventListener('click', () => {
     }
 });
 
+createPersonaButton.addEventListener('click', ()=>{
+    sectionIDHTML.style.display = 'flex';
+});
+
+cancelButton.addEventListener('click', ()=>{
+    createPersonaForm.reset();
+    sectionIDHTML.style.display = 'none';
+});
+
+createPersonaForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const nombre = createPersonaForm.querySelector("[name=nombre]").value;
+    const apellido = createPersonaForm.querySelector("[name=apellido]").value;
+    const dni = createPersonaForm.querySelector("[name=dni]").value;
+    const fecha_nacimiento = createPersonaForm.querySelector("[name=fechaNacimiento]").value;
+    const email = createPersonaForm.querySelector("[name=email]").value;
+    const telefono = createPersonaForm.querySelector("[name=telefono]").value;
+    const direccion = createPersonaForm.querySelector("[name=direccion]").value;
+
+    fetch(`${apiUrl}/persona/create`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        },
+        body: JSON.stringify({ nombre, apellido, dni, fecha_nacimiento, email, telefono, direccion})
+    })
+    .then(response => {
+        if (!response.ok) {
+            return response.json().then(error => { throw new Error(error.error) });
+        }
+
+        return response.json();
+    })
+    .then(data => {
+        console.log(data.message);
+        // Actualiza la tabla y oculta el formulario
+        fetchDataButton.click(); // Volver a cargar los datos
+        sectionIDHTML.style.display = 'none';
+        createPersonaForm.reset();
+    })
+     .catch(error => {
+        console.error('Error:', error);
+        fetchError.textContent = 'Error al agregar persona';
+    });
+});
+
 function handleEdit(personId) {
     // Lógica para editar la persona
     console.log('Edit person with id:', personId);
@@ -83,5 +140,4 @@ function handleEdit(personId) {
 function handleDelete(personId) {
     // Lógica para eliminar la persona
     console.log('Delete person with id:', personId);
-
 }

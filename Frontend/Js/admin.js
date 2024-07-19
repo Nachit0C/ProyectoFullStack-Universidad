@@ -85,6 +85,7 @@ fetchDataButton.addEventListener('click', () => {
 
 createPersonaButton.addEventListener('click', ()=>{
     sectionIDHTML.style.display = 'flex';
+    createPersonaForm.scrollIntoView({ behavior: 'instant' });
 });
 
 cancelButton.addEventListener('click', ()=>{

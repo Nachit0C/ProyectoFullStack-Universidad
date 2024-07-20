@@ -12,7 +12,7 @@ formularioHTML.addEventListener('submit', (event)=>{
     const username = usernameHTML.value;
     const password = passwordHTML.value;
 
-    fetch(`${apiUrl}/auth/login`, {
+    fetch(`https://urioplata.alwaysdata.net/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })

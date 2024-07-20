@@ -24,6 +24,7 @@ myApp.use(myExpress.json());
 myApp.use(myExpress.static(path.join(__dirname, 'Frontend')));
 
 console.log('host:', process.env.HOST);
+console.log(process.env.PRUEBA);
 console.log(process.env.USER);
 console.log(process.env.PASSWORD);
 console.log(process.env.DATABASE);

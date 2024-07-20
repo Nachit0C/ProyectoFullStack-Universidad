@@ -1,5 +1,5 @@
 //const apiUrl = 'http://localhost:3000';
-const apiUrl = 'urioplata.alwaysdata.net/';
+const apiUrl = 'urioplata.alwaysdata.net';
 
 const fetchDataButton = document.getElementById('fetchData');
 const dataTable = document.getElementById('data');

@@ -1,5 +1,5 @@
 //const apiUrl = 'http://localhost:3000';
-const apiUrl = 'urioplata.alwaysdata.net/';
+const apiUrl = 'urioplata.alwaysdata.net';
 
 const formularioHTML = document.getElementById("formularioLogin");
 const usernameHTML = document.querySelector("[name=username]");
@@ -12,7 +12,7 @@ formularioHTML.addEventListener('submit', (event)=>{
     const username = usernameHTML.value;
     const password = passwordHTML.value;
 
-    fetch(`https://urioplata.alwaysdata.net/auth/login`, {
+    fetch(`${apiUrl}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })

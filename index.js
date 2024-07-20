@@ -7,6 +7,7 @@ const persona = require('./Backend/Routes/persona');
 const alumno = require('./Backend/Routes/alumno');
 const inscripciones = require('./Backend/Routes/inscripciones');
 const authRoute = require("./Backend/Routes/authRoute");
+const path = require('path');
 
 const PORT = process.env.PORT || 3000;
 
@@ -20,11 +21,7 @@ myApp.use(cors());
 
 myApp.use(myExpress.json());
 
-console.log('HOST:', process.env.HOST);
-console.log('USER:', process.env.USER);
-console.log('PASSWORD:', process.env.PASSWORD);
-console.log('DATABASE:', process.env.DATABASE);
-
+app.use(express.static(path.join(__dirname, 'Frontend')));
 
 myApp.use("/", blankRoute);
 

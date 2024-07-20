@@ -11,6 +11,7 @@ El sitio está compuesto por 4 páginas navegables (y 8 páginas mas de cada una
 
 * Index:
    Esta es la página principal que consiste en una sección hero y un contenido principal con links a las páginas de las carreras.
+  
 * Sedes:
   Aqui se encuentran las 4 sedes, con información de las mismas y un iframe de google maps de cada una.
 * Login:

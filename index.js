@@ -23,14 +23,6 @@ myApp.use(myExpress.json());
 
 myApp.use(myExpress.static(path.join(__dirname, 'Frontend')));
 
-console.log('host:', process.env.HOST);
-console.log(process.env.PRUEBA);
-console.log(process.env.USER);
-console.log(process.env.PASSWORD);
-console.log(process.env.DATABASE);
-console.log(process.env.SECRET_KEY);
-console.log(process.env.APIURL);
-
 myApp.use("/", blankRoute);
 
 myApp.use("/carreras", carreras);

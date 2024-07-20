@@ -16,7 +16,7 @@ const myApp = myExpress();
     origin: 'http://127.0.0.1:5500'
 }));*/
 
-myApp.use(Cors());
+myApp.use(cors());
 
 myApp.use(myExpress.json());
 

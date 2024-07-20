@@ -20,6 +20,12 @@ myApp.use(cors());
 
 myApp.use(myExpress.json());
 
+console.log('HOST:', process.env.HOST);
+console.log('USER:', process.env.USER);
+console.log('PASSWORD:', process.env.PASSWORD);
+console.log('DATABASE:', process.env.DATABASE);
+
+
 myApp.use("/", blankRoute);
 
 myApp.use("/carreras", carreras);

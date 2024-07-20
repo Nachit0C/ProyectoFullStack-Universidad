@@ -48,7 +48,7 @@
     <section class="seccion" id="sectionID">
         <form class="formulario" id="createPersonaForm">
             <fieldset class="campos">
-                <legend>Agregar Persona</legend>
+                <legend id="leyendaFormulario"></legend>
                 <div>
                     <label for="nombre">Nombre:</label>
                     <input type="text" id="nombre" name="nombre">
@@ -78,8 +78,9 @@
                     <label for="direccion">Dirección:</label>
                     <input type="text" id="direccion" name="direccion">
                 </div>
+                <p id="pErrorFormulario" style="display: none;"></p>
                 <div>
-                    <input class="boton" type="submit" value="Agregar Persona" id="botonAgregarPersona">
+                    <input class="boton" type="submit" value="" id="botonAgregarPersona">
                     <button class="botonCancelar" type="button" id="cancelButton">Cancelar</button>
                 </div>
                 <div id="mensajeRespuesta"></div>

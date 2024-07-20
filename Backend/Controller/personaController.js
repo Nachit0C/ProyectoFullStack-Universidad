@@ -3,12 +3,14 @@ const db = require('../database/db');
 const personas = (req, res) => {
     const sql = `SELECT * FROM personas;`;
     db.query(sql, (err, result) =>{
-        if(err) throw err;
+        if (err) {
+            return res.status(500).json({ error: 'Error en el servidor' });
+        };
         
         if (result.length == 0) {
-            return res.send('No hay personas registradas todavía.');
+            return res.status(400).json({ error: 'No hay personas registradas todavía.' });
         } else {
-            res.send(result);
+            res.status(201).json({ message: 'Éxito al obtener las personas', result });
         }
     });
 };
@@ -17,12 +19,14 @@ const getPersona = (req, res) => {
     const persona_id = req.params.id;
     const sql = `SELECT * FROM personas WHERE persona_id = ? ;`;
     db.query(sql, persona_id, (err, result) =>{
-        if(err) throw err;
+        if (err) {
+            return res.status(500).json({ error: 'Error en el servidor' });
+        };
 
         if (result.length == 0) {
-            return res.send('No existe persona con ese id.');
+            return res.status(400).json('No existe persona con ese id.');
         } else {
-            res.send(result);
+            res.status(201).json({ message: 'Éxito al obtener la persona', result });
         }
     });
 };
@@ -39,7 +43,7 @@ const createPersona = (req, res) => {
             };
 
             if (result.length > 0) {
-                return res.status(400).json({ error: 'Ya existe una persona con ese dni o email.' });
+                return res.status(405).json({ error: 'Ya existe una persona con ese dni o email.' });
             } else {
                 const sql = `INSERT INTO personas (nombre, apellido, dni, fecha_nacimiento, email, telefono, direccion) 
                     VALUES (?, ?, ?, ?, ?, ?, ?);`;
@@ -66,24 +70,30 @@ const updatePersona = (req, res) => {
         //Verifico que exista persona con el id enviado
         const sql1 = `SELECT * FROM personas WHERE persona_id = ? ;`;
         db.query(sql1, persona_id, (err, result) =>{
-            if(err) throw err;
+            if (err) {
+                return res.status(500).json({ error: 'Error en el servidor' });
+            };
 
             if (result.length == 0) {
-                return res.send('No existe persona con ese id.');
+                return res.status(400).json('No existe persona con ese id.');
             } else {
                 //Verifico si ya existe una persona con el mismo dni o email
                 const sql2 = `SELECT * FROM personas WHERE (dni = ? OR email = ?) AND (persona_id != ?);`;
                 db.query(sql2,[dni,email, persona_id], (err,result) => {
-                    if (err) throw err;
+                    if (err) {
+                        return res.status(500).json({ error: 'Error en el servidor' });
+                    };
 
                     if (result.length > 0) {
-                        return res.send('Ya existe una persona con ese dni o email.');
+                        return res.status(405).json({ error: 'Ya existe una persona con ese dni o email.' });
                     } else {
                         const sql3 = `UPDATE personas SET nombre = ?, apellido = ?, dni = ?, fecha_nacimiento = ?, email = ?, telefono    = ?, direccion = ? WHERE (persona_id = ? );`;
 
                         db.query(sql3,[nombre, apellido, dni, fecha_nacimiento, email, telefono, direccion, persona_id] ,(err, result) => {
-                            if (err) throw err;
-                            res.send(result);        
+                            if (err) {
+                                return res.status(500).json({ error: 'Error en el servidor' });
+                            };
+                            res.status(201).json({ message: 'Persona actualizada con éxito', result });     
                         });
                     }
                 });
@@ -100,21 +110,27 @@ const deletePersona = (req, res) => {
     //Verifico que exista persona con el id enviado
     const sql1 = `SELECT * FROM personas WHERE persona_id = ? ;`;
     db.query(sql1, persona_id, (err, result) =>{
-        if(err) throw err;
+        if (err) {
+            return res.status(500).json({ error: 'Error en el servidor' });
+        };
 
         if (result.length == 0) {
             return res.status(400).send('No existe persona con ese id.');
         } else {
             const sql2 = `SELECT alumno_id FROM alumnos where persona_id= ? ;`;
             db.query(sql2, persona_id, (err, result) => {
-                if (err) throw err;
+                if (err) {
+                    return res.status(500).json({ error: 'Error en el servidor' });
+                };
 
                 if (result.length == 0) {
                     //Si esa persona no es un alumno, elimino solo en la tabla personas.
                     const sql3 = `DELETE FROM personas WHERE (persona_id = ?);`;
                     db.query(sql3, [persona_id], (err, result) => {
-                        if (err) throw err;
-                        res.send(result);
+                        if (err) {
+                            return res.status(500).json({ error: 'Error en el servidor' });
+                        };
+                        res.status(201).json({ message: 'Persona eliminada con éxito', result }); 
                     });
                 } else {
                     //Si esa persona es un alumno, elimino primero inscripciones despues la tabla alumno y despues la tabla personas.
@@ -124,8 +140,10 @@ const deletePersona = (req, res) => {
                     DELETE FROM personas WHERE (persona_id = ?);`;
     
                     db.query(sql3, [alumno_id,alumno_id,persona_id], (err, result) => {
-                        if (err) throw err;
-                        res.send(result);
+                        if (err) {
+                            return res.status(500).json({ error: 'Error en el servidor' });
+                        };
+                        res.status(201).json({ message: 'Persona eliminada con éxito', result }); 
                     });
                 }
             });

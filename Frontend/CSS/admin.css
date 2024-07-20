@@ -149,3 +149,14 @@ textarea {
 .botonCancelar:hover {
     background-color: rgba(206, 65, 65, 0.851);
 }
+
+.invalido{
+    border: solid 1px red;
+    box-shadow: 0 0 10px red;
+}
+
+#pErrorFormulario {
+    display: none;
+    padding: 0.5rem;
+    color: red;
+}

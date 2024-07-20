@@ -1,4 +1,5 @@
-const apiUrl = 'http://localhost:3000';
+//const apiUrl = 'http://localhost:3000';
+const apiUrl = process.env.APIURL;
 
 const fetchDataButton = document.getElementById('fetchData');
 const dataTable = document.getElementById('data');

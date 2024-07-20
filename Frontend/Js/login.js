@@ -1,4 +1,5 @@
-const apiUrl = 'http://localhost:3000';
+//const apiUrl = 'http://localhost:3000';
+const apiUrl = process.env.APIURL;
 
 const formularioHTML = document.getElementById("formularioLogin");
 const usernameHTML = document.querySelector("[name=username]");

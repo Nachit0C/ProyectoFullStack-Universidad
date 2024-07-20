@@ -12,9 +12,9 @@ const PORT = process.env.PORT || 3000;
 
 const myApp = myExpress();
 
-myApp.use(cors({
+myApp.use(cors(/*{
     origin: 'http://127.0.0.1:5500'
-}));
+}*/));
 
 myApp.use(myExpress.json());
 
@@ -33,5 +33,6 @@ myApp.use('/inscripciones', inscripciones);
 myApp.use("/auth", authRoute);
 
 myApp.listen( PORT, () =>{
-    console.log(`Server running at port: http://localhost:${PORT} .`);
+    //console.log(`Server running at port: http://localhost:${PORT} .`);
+    console.log(`Server running.`);
 });

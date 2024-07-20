@@ -10,6 +10,7 @@ La finalidad del proyecto fue aprender y demostrar los conocimientos adquiridos 
 El sitio está compuesto por 4 páginas navegables (y 8 páginas mas de cada una de las carreras):
 
 * Index:
+  
    Esta es la página principal que consiste en una sección hero y un contenido principal con links a las páginas de las carreras.
   
 * Sedes:

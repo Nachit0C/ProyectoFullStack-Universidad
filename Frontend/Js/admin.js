@@ -1,3 +1,4 @@
+require('dotenv').config();
 const apiUrl = process.env.APIURL;
 
 const fetchDataButton = document.getElementById('fetchData');

@@ -1,5 +1,4 @@
-require('dotenv').config();
-const apiUrl = process.env.APIURL;
+const apiUrl = 'https://urioplata.alwaysdata.net';
 
 const formularioHTML = document.getElementById("formularioLogin");
 const usernameHTML = document.querySelector("[name=username]");

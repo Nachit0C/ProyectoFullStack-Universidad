@@ -1,5 +1,4 @@
-require('dotenv').config();
-const apiUrl = process.env.APIURL;
+const apiUrl = 'https://urioplata.alwaysdata.net';
 
 const fetchDataButton = document.getElementById('fetchData');
 const dataTable = document.getElementById('data');

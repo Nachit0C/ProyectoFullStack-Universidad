@@ -15,7 +15,8 @@ const register = (req,res) => {
             return res.status(500).json({ error: 'Error en el servidor' });
         };
         //res.status(201).json({ message: 'adminUser creado con éxito', result });
-        const token = jwt.sign({username: username}, process.env.SECRET_KEY, {expiresIn: '1h'});
+        //const token = jwt.sign({username: username}, process.env.SECRET_KEY, {expiresIn: '1h'});
+        const token = jwt.sign({username: username}, 'admin1234', {expiresIn: '1h'});
         
         res.status(201).send({auth: true, token});
     });
@@ -41,7 +42,8 @@ const login = (req,res) => {
             return res.status(401).send({auth: false, token: null, message:'Contraseña incorrecta'})
         };
     
-        const token = jwt.sign({username: username}, process.env.SECRET_KEY, {expiresIn: '1h'});
+        //const token = jwt.sign({username: username}, process.env.SECRET_KEY, {expiresIn: '1h'});
+        const token = jwt.sign({username: username}, 'admin1234', {expiresIn: '1h'});
     
         res.status(200).send({auth:true, token});
     });

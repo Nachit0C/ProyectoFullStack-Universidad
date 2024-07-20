@@ -21,7 +21,7 @@ myApp.use(cors());
 
 myApp.use(myExpress.json());
 
-myApp.use(express.static(path.join(__dirname, 'Frontend')));
+myApp.use(myExpress.static(path.join(__dirname, 'Frontend')));
 
 myApp.use("/", blankRoute);
 

@@ -25,7 +25,7 @@ const register = (req,res) => {
 const login = (req,res) => {
     const{username,password} = req.body;
 
-    const sql = `SELECT password FROM adminUsers WHERE (username) = (?);`;
+    const sql = `SELECT password FROM adminusers WHERE (username) = (?);`;
 
     db.query(sql, [username], (err, result) => {
         if (err) {

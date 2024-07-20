@@ -1,5 +1,4 @@
-//const apiUrl = 'http://localhost:3000';
-const apiUrl = 'https://urioplata.alwaysdata.net';
+const apiUrl = process.env.APIURL;
 
 const formularioHTML = document.getElementById("formularioLogin");
 const usernameHTML = document.querySelector("[name=username]");

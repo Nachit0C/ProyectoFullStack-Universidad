@@ -23,8 +23,6 @@ myApp.use(myExpress.json());
 
 myApp.use(myExpress.static(path.join(__dirname, 'Frontend')));
 
-console.log(process.env.PRUEBA);
-
 myApp.use("/", blankRoute);
 
 myApp.use("/carreras", carreras);

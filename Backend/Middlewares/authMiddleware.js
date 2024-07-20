@@ -9,8 +9,8 @@ const authCheck = (req, res, next) => {
 
     if(!token){res.status(403).send({auth:false, message: "Token malformado"})};
 
-    //jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
-    jwt.verify(token, 'admin1234', (err, decoded) => {
+    jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
+    //jwt.verify(token, 'admin1234', (err, decoded) => {
         if(err){return res.status(500).send({auth:false, message:"Failed to authenticate token"})};
 
         req.userId = decoded.username;

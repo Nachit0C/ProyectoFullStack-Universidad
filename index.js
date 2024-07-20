@@ -12,9 +12,11 @@ const PORT = process.env.PORT || 3000;
 
 const myApp = myExpress();
 
-myApp.use(cors(/*{
+/*myApp.use(cors({
     origin: 'http://127.0.0.1:5500'
-}*/));
+}));*/
+
+myApp.use(Cors());
 
 myApp.use(myExpress.json());
 

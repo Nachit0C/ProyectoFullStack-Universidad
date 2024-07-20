@@ -95,6 +95,7 @@ createPersonaButton.addEventListener('click', ()=>{
     leyendaFormulario.innerHTML = 'Agregar Persona';
     boton.value = 'Agregar Persona';
     createPersonaForm.scrollIntoView({ behavior: 'instant' });
+    document.querySelector('footer').style.position = 'static';
 });
 
 cancelButton.addEventListener('click', ()=>{
@@ -106,6 +107,7 @@ cancelButton.addEventListener('click', ()=>{
     createPersonaForm.querySelector("[name=email]").classList.remove("invalido");
     pErrorFormulario.style.display = 'none';
     fetchError.textContent = '';
+    document.querySelector('footer').style.position = 'fixed';
 });
 
 createPersonaForm.addEventListener('submit', (event) => {
@@ -118,7 +120,7 @@ createPersonaForm.addEventListener('submit', (event) => {
     const email = createPersonaForm.querySelector("[name=email]").value;
     const telefono = createPersonaForm.querySelector("[name=telefono]").value;
     const direccion = createPersonaForm.querySelector("[name=direccion]").value;
-    
+
     if(agregaroEditar === 'agregar'){
 
         fetch(`${apiUrl}/persona/create`, {
@@ -152,6 +154,7 @@ createPersonaForm.addEventListener('submit', (event) => {
             createPersonaForm.querySelector("[name=email]").classList.remove("invalido");
             pErrorFormulario.style.display = 'none';
             fetchError.textContent = '';
+            document.querySelector('footer').style.position = 'fixed';
         })
          .catch(error => {
             console.error('Error:', error);
@@ -192,6 +195,7 @@ createPersonaForm.addEventListener('submit', (event) => {
             createPersonaForm.querySelector("[name=email]").classList.remove("invalido");
             pErrorFormulario.style.display = 'none';
             fetchError.textContent = '';
+            document.querySelector('footer').style.position = 'fixed';
         })
          .catch(error => {
             console.error('Error:', error);
@@ -201,6 +205,7 @@ createPersonaForm.addEventListener('submit', (event) => {
 });
 
 function handleEdit(personId) {
+    document.querySelector('footer').style.position = 'static';
     const boton = document.getElementById('botonAgregarPersona');
     leyendaFormulario.innerHTML = 'Editar Persona';
     sectionIDHTML.style.display = 'flex';
@@ -252,14 +257,8 @@ function handleDelete(personId) {
     })
     .then(data => {
         console.log(data.message);
-        // Actualiza la tabla y oculta el formulario
         fetchDataButton.click(); // Volver a cargar los datos
-        //sectionIDHTML.style.display = 'none';
-        //createPersonaForm.reset();
         personaEditarID = '';
-        //createPersonaForm.querySelector("[name=dni]").classList.remove('invalido');
-        //createPersonaForm.querySelector("[name=email]").classList.remove("invalido");
-        //pErrorFormulario.style.display = 'none';
         fetchError.textContent = '';
     })
      .catch(error => {

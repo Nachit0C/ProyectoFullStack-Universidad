@@ -1,5 +1,7 @@
+/* Este archivo envía un saludo al ingresar al servidor con ruta vacía */
+
 const bienvenida = ( req, res ) => {
-    res.send("Bienvenido al servidor!");
+    res.status(201).json({ message: 'Bienvenidx al servidor'});
 };
 
 module.exports = bienvenida;

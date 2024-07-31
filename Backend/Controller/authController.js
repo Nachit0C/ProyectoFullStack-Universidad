@@ -1,9 +1,14 @@
+/* Este archivo maneja las funciones relacionadas a las rutas de autenticación de logueo y registro */
+
 const db = require('../database/db');
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
-users = {username: "admin", password: "1234"}
-
+/*
+    La función register maneja la ruta /auth/register
+    Responde a un POST, utilizando bcrypt y jwt para generar credenciales de un registro encriptado.
+    Devuelve el token generado para autenticar el login con esas credenciales.
+*/
 const register = (req,res) => {
     const{username,password} = req.body;
     const hashedPass = bcrypt.hashSync(password, 8);
@@ -22,6 +27,10 @@ const register = (req,res) => {
     });
 };
 
+/*
+    La función register maneja la ruta /auth/login
+    Responde a un POST, utilizando bcrypt y jwt para autenticar credenciales de un registro encriptado.
+*/
 const login = (req,res) => {
     const{username,password} = req.body;
 

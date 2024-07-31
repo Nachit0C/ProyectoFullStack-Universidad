@@ -1,3 +1,5 @@
+/* Este archivo maneja las rutas para manejar los datos de la tabla alumnos */
+
 const myExpress = require('express');
 const myRouter = myExpress.Router();
 const alumnoController = require('../Controller/alumnoController');

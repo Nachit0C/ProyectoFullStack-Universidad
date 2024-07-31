@@ -28,7 +28,7 @@
     <div id="divTabla">
         <button id="fetchData">Traer Tabla</button>
         <br>
-        <table id="data">
+        <table id="dataPersonas">
             <caption class="titulos"><b>Personas</b></caption>
             <thead>
                 <tr id="titulosTabla">
@@ -78,6 +78,17 @@
                     <label for="direccion">Dirección:</label>
                     <input type="text" id="direccion" name="direccion">
                 </div>
+                <p>Es alumno?</p>
+                <div id="radioButtonDiv">
+                    <div>
+                        <label for="esAlumnoSi">Si</label>
+                        <input type="radio" name="esAlumno" id="esAlumnoSi" value="Si">
+                    </div>
+                    <div>
+                        <label for="esAlumnoNo">No</label>
+                        <input type="radio" name="esAlumno" id="esAlumnoNo" value="No">
+                    </div>
+                </div>
                 <p id="pErrorFormulario" style="display: none;"></p>
                 <div>
                     <input class="boton" type="submit" value="" id="botonAgregarPersona">
@@ -88,9 +99,59 @@
         </form>
     </section>   
 
+    <div class="divTabla">
+        <table style="display: none; position: relative;" id="tablaInscripciones">
+            <caption class="titulos">
+                <span id="cerrarTablaInscripciones">&#10005;</span>
+                <p></p>
+            </caption>
+            <thead>
+                <tr class="titulosTabla">
+                    <th>Carrera</th>
+                    <th>Sede</th>
+                    <th>Fecha de Incripcion</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <button id="createInscripcionButton" style="display: none;">Nueva Inscripcion</button>
+    </div>
+
+    <section class="seccion" id="sectionIDInscripcion">
+        <form class="formulario" id="createInscripcionForm">
+            <fieldset class="campos">
+                <legend id="leyendaFormularioInscripcion"></legend>
+                <div>
+                    <datalist id="carreras">
+                        <option value="Relaciones Internacionales"></option>
+                        <option value="Comercio Internacional"></option>
+                        <option value="Economía"></option>
+                        <option value="Medicina"></option>
+                        <option value="Psicología"></option>
+                        <option value="Derecho"></option>
+                        <option value="Arquitectura"></option>
+                        <option value="Programación"></option>
+                    </datalist>
+                    <label>
+                        Carrera a consultar
+                        <input list="carreras" id="carrera" name="carrera">
+                    </label>
+                </div>
+                <div>
+                    <input class="boton" type="submit" value="" id="submitAgregarInscripcion">
+                    <button class="botonCancelar" type="button" id="cancelButtonInscripcion">Cancelar</button>
+                </div>
+            </fieldset>
+            <div id="mensajeRespuestaInscripcion">hola</div>
+        </form>
+    </section>
+
     <div id="fetchError" style="color: red;"></div>
 
-    <footer style="position: fixed; bottom: 0; left: 0; width: 100vw;">
+    <footer>
         <i class="fa fa-envelope"></i>
         <i class="fa fa-github"></i>
         <i class="fa fa-twitter"></i>

@@ -22,59 +22,6 @@ h1{
     text-align: center;
 }
 
-table{
-    display: none;
-    width: 20em;
-    border-collapse: collapse;
-}
-
-td {
-    width: 2.857em; /* Ancho de cada celda */
-    padding: 0.3em;
-    height: 1.2em; /* Altura automática */
-    text-align: center; /* Centra el texto horizontalmente */
-    vertical-align: middle;
-}
-
-
-.titulos{
-    background-color: white;
-    border: 1px white;
-    padding: 0.25rem;
-}
-
-#titulosTabla{
-    background-color: gainsboro;
-    border-bottom: black solid 1px;
-    border-top: black solid 1px;
-}
-
-tr:nth-child(even) {
-    background-color: gainsboro; /* Color de fondo para filas pares */
-    border: 1px  solid black;
-    border-left: none; /* Elimina el borde izquierdo */
-    border-right: none; /* Elimina el borde derecho */ 
-}
-
-tr:nth-child(odd) {
-    background-color: white; /* Color de fondo para filas impares*/
-    border: 1px white;  
-}
-
-th{
-    min-width: 10rem;
-}
-
-#divTabla{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#createPersona{
-    margin-top: 1rem;
-}
-
 .seccion {
     margin-top: 2.5rem;
     margin-bottom: 2.5rem;
@@ -111,6 +58,7 @@ label {
 }
 
 input[type="text"],
+input[type="date"],
 input[type="email"],
 input[type="tel"],
 input[type="submit"],
@@ -122,6 +70,16 @@ textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+}
+
+#radioButtonDiv{
+    display: flex;
+    flex-direction: row;
+}
+
+#radioButtonDiv>div{
+    padding: 10px;
+    margin-right: 15px;
 }
 
 .boton {
@@ -159,4 +117,78 @@ textarea {
     display: none;
     padding: 0.5rem;
     color: red;
+}
+
+table{
+    display: none;
+    width: 20em;
+    border-collapse: collapse;
+}
+
+td {
+    width: 2.857em; 
+    padding: 0.3em;
+    height: 1.2em; 
+    text-align: center; 
+    vertical-align: middle;
+}
+
+
+.titulos{
+    background-color: white;
+    border: 1px white;
+    padding: 0.5rem;
+}
+
+.titulosTabla{
+    background-color: gainsboro;
+    border-bottom: black solid 1px;
+    border-top: black solid 1px;
+}
+
+.filasTablaGris{
+    background-color: gainsboro;
+    border: 1px  solid black;
+    border-left: none; 
+    border-right: none; 
+}
+
+.filasTablaBlanco{
+    background-color: white; 
+    border: 1px white;  
+}
+
+.filasDetallesTabla{    
+    border-top: 1px solid black;
+    background-color: rgb(228, 228, 228);
+}
+
+th{
+    min-width: 10rem;
+}
+
+.divTabla{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+#createPersona,
+#createInscripcionButton{
+    margin-top: 1rem;
+}
+
+#cerrarTablaInscripciones {
+    font-size: 24px;
+    color: red; 
+    /*padding: 5px; */
+    cursor: pointer;
+    position: absolute; 
+    top: 0; 
+    right: 0.5rem;
+}
+
+#cerrarTablaInscripciones:hover {
+    color: darkred;
 }

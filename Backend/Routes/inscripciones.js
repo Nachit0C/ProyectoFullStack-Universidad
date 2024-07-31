@@ -1,3 +1,5 @@
+/* Este archivo maneja las rutas para manejar los datos de la tabla inscripciones */
+
 const myExpress = require('express');
 const myRouter = myExpress.Router();
 const inscripcionesController = require('../Controller/inscripcionesController');

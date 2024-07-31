@@ -1,3 +1,5 @@
+/* Este archivo maneja las rutas para manejar los datos de la autenticación de logueo y registro */
+
 const myExpress = require('express');
 const myRouter = myExpress.Router();
 const authController = require('../Controller/authController');

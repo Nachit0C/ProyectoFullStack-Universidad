@@ -1,5 +1,11 @@
+/* Este archivo contiene un middleware que maneja el chequeo de la autenticación */
+
 const jwt = require("jsonwebtoken");
 
+/*
+    La función authCheck es un middleware que recibe un token y lo verifica con JWT.
+    Devuelve el username decodificado.
+*/
 const authCheck = (req, res, next) => {
     const authHeader = req.headers['authorization'];
 

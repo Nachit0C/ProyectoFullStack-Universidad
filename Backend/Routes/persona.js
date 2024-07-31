@@ -1,3 +1,5 @@
+/* Este archivo maneja las rutas para manejar los datos de la tabla personas */
+
 const myExpress = require('express');
 const myRouter = myExpress.Router();
 const personaController = require('../Controller/personaController');

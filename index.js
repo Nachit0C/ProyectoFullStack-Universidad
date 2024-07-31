@@ -1,3 +1,5 @@
+/* Este archivo es el main del servidor que maneja el backend del proyecto */
+
 const myExpress = require('express');
 const cors = require('cors');
 const blankRoute = require('./Backend/Routes/blankRoute');
@@ -12,10 +14,6 @@ const path = require('path');
 const PORT = process.env.PORT || 3000;
 
 const myApp = myExpress();
-
-/*myApp.use(cors({
-    origin: 'http://127.0.0.1:5500'
-}));*/
 
 myApp.use(cors());
 

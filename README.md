@@ -36,3 +36,6 @@ Todo está conectado con un backend a través de una API REST desarrollado en su
 Se podrían agregar muchísimas cosas para que la página se parezca mas a un sitio real de una universidad. Como por ejemplo agregar mas páginas con manejos de datos de materias, docentes, no docentes, etc.
 Emprolijar mas el código con nombres de funciones y variables mas descriptivos y precisos.
 También se podría mejorar el manejo de datos de los campos agregando validaciones mas arduas.
+
+# Link de la página:
+https://urioplata.alwaysdata.net/
